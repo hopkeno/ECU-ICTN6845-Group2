@@ -1,0 +1,75 @@
+ 
+ 
+	body { 
+	text-align: center;
+	background-color: white;
+	}
+		    
+   header { 
+    background-image: -webkit-linear-gradient(45deg, white 0%, green 75%, black 110%);
+    background-image: -moz-linear-gradient(45deg, white 0%, green 75%, black 110%);
+    background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%%);
+    background-image: linear-gradient(45deg, white 0%, green 75%, black 110%);
+	border: 2px solid black;
+	
+	} 
+	
+	header img { 
+	float:left;
+	margin-top:0em;
+	margin-bottom:20em;
+	
+	}
+	
+	fieldset {
+    margin: .5em;
+    border:1px solid black;
+        
+}
+
+
+legend {
+    font-weight: bold;
+    font-size: 120%;
+	text-align: left;
+}
+	
+	h3{
+		text-align: center;
+		font-size: 200%;
+		color: blue;
+	}
+	
+	h1{
+		font-size: 300%;
+        color: black;
+	}
+		
+	label {
+			color: black;
+			float: center;
+			width: 8em;
+			font-weight: bold;
+			text-align: center;
+			padding-right: 1em;
+			position:absolute;
+			}
+			
+	input {
+			width: 8em;
+			margin-bottom: .5em;
+			margin-left: 9em;
+    }
+			
+		input:focus {
+			border: 2px solid navy; }
+			
+	  
+		#button {
+			width: 7em; 
+			background-color: rgb(192, 192, 192);
+			border: 2px solid black;  
+			margin-left: 2em;
+		}
+		
+	
