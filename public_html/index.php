@@ -1,68 +1,56 @@
+<?php
+// Start session management and include DB functions
+session_start();
+require_once('database.php');
+require_once('user_db.php');
 
-<head>
-    <title>Final project</title>
-	<meta charset="utf-8">
-    <link rel="stylesheet" href="styles/normalize.css">
-	<link rel="stylesheet" href="styles/main.css">
-    
-</head>
+// Determine action
+$action = filter_input(INPUT_POST,'action');
+if ($action == NULL) {
+    $action =  filter_input(INPUT_GET, 'action');
+    if ($action == NULL) {
+        $action = 'show_tasks';
+    }
+}
 
-<body>
-	<header>
-	<h1>East Carolina University </h1>
-	<h1>Cultural Center</h1>
-    <img src=images/worldpeacelogo.jpeg alt="worldpeacelogo" width="150">	
-	</header>
-	
-	<h2>Volunteers page</h2>
-    <main>
-    <form action="succes.php" method="post" >
-	
-    <fieldset>
-        <legend>Registration</legend>
-		
-       
-        <label>First Name:</label>
-		<input type="text" name="first_name" value=""><br><br>
-       
-        <label>Last Name:</label>
-        <input type="text" name="last_name" value=""><br><br>
-              
-      
-        <label>E-Mail:</label>
-        <input type="text" name="email" value=""><br><br>
-			   
-		<label>Create Username:</label>
-		<input type="text" name="username" value=""><br><br>
-			   
-			   
-        <label>Create Password:</label>
-		<input type="text" name="password"  value=""><br><br>	
-			   
-		<label>Verify Password:</label>
-		<input type="text" name="password"  value=""><br><br>	  
-		   
-		
-        <input type="submit" name="action" id="button" value="Register"><br><br>
-		
-    </fieldset>
-  
-  <form action="tasks.php" method="post" >
-   <fieldset>
-        <legend>Login</legend>
-        
-        <label>Username:</label>
-		<input type="text" name="username"  value=""><br><br>
-			   
-			   
-        <label>Password:</label>
-		<input type="text" name="password" value=""><br><br>	
-      
-	    <input type="submit" name="Login" id="button" value="Login"><br><br>  
-    </fieldset>
-	
-</main>
-	
-	</body>
+// If the user isn't logged in, force the login
+if (!isset($_SESSION['is_authenticated'])) {
+    $action = 'login';
+}
 
-
+// Perform the specified action
+switch($action) {
+    case 'login':
+        $username = filter_input(INPUT_POST, 'username');
+        $password = filter_input(INPUT_POST, 'password');
+        if (is_valid_login($username,$password)) {
+            // if the user is authenticated, take them to the task page
+            $_SESSION['is_authenticated'] = true;
+            set_session($username);
+            if($_SESSION['is_admin']) {
+                include("task_admin.php");
+            } else {
+                include("task.php");
+            }
+        } else if ($username != null or $password != null){
+            // if the user isn't authenticated we send them back to the login page
+            include("login.php");
+        } else {
+            include("home.php");
+        }
+        break;
+    case 'show_tasks':
+        if ($_SESSION['is_admin']) {
+            include("task_admin.php");
+        } else {
+            include("task.php");
+        }
+        break;
+    case 'logout':
+        $_SESSION = array();
+        session_destroy();
+        $login_message = 'You have been logged out.';
+        include("index.php");
+        break;
+}
+?>
