@@ -93,7 +93,7 @@ function get_volunteers() {
     $query = 'SELECT volunteerID, username, first_name, last_name, email FROM users';
     $statement = $db->prepare($query);
     $statement->execute();
-    $results = $statement->fetch();
+    $results = $statement->fetchAll();
     $statement->closeCursor();
     return $results;
 }
