@@ -20,68 +20,64 @@ require_once("task_db.php");
 		<img src=images/worldpeacelogo.jpeg alt="worldpeacelogo" width="150">	
 	</header>
 	<style>
-	header {
-	background-image: -webkit-linear-gradient(45deg, white 0%, green 75%, black 110%);
-    background-image: -moz-linear-gradient(45deg, white 0%, green 75%, black 110%);
-    background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%%);
-    background-image: linear-gradient(45deg, white 0%, green 75%, black 110%);
-	border: 2px solid black;
-	text-align: center;
-	}
-	header img { 
-	float:left;
-	margin-top:0em;
-	margin-bottom:20em;
-	} 
-	
-	fieldset {
-    margin: .5em;
-    border:1px solid black;
-	Font-size: 150%;
-	}
-	
-	legend {
-    font-weight: bold;
-    font-size: 120%;
-	text-align: left;
-  }
-  
-label {     color: blue;
-			width: 6em;
-			padding-right: 1em;
-			position: absolute;
-			}
-th  {     	color: blue;
-			width: 6em;
-			padding-right: 1em;
-			text-align: left;
-			font-weight: normal;
-			}
-
-			
-select {    width: 10em;
-			margin-bottom: 1em;
-			margin-left:12em;
-			font-weight: bold;
+		header {
+		background-image: -webkit-linear-gradient(45deg, white 0%, green 75%, black 110%);
+		background-image: -moz-linear-gradient(45deg, white 0%, green 75%, black 110%);
+		background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%%);
+		background-image: linear-gradient(45deg, white 0%, green 75%, black 110%);
+		border: 2px solid black;
+		text-align: center;
 		}
+		header img { 
+		float:left;
+		margin-top:0em;
+		margin-bottom:20em;
+		} 
 		
-input {   
-           margin-left: 12em;
-		   margin-bottom: 1em;
-		   font-weight: bold;
-		   width: 12em;			   
-      }
-	  
- #button {
-			width: 12em; 
-			background-color: rgb(192, 192, 192);
-			border: 1px solid black;  
-			margin-left: 12em;
-			}
- p{
-	        color: blue;
-			
- }
+		fieldset {
+		margin: .5em;
+		border:1px solid black;
+		Font-size: 150%;
+		}
+		legend {
+		font-weight: bold;
+		font-size: 120%;
+		text-align: left;
+		}
+		label {
+		color: blue;
+		width: 6em;
+		padding-right: 1em;
+		position: absolute;
+		}
+		th  {
+		color: blue;
+		width: 6em;
+		padding-right: 1em;
+		text-align: left;
+		font-weight: normal;
+		}				
+		select {
+		width: 10em;
+		margin-bottom: 1em;
+		margin-left:12em;
+		font-weight: bold;
+		}			
+		input {   
+		margin-left: 12em;
+		margin-bottom: 1em;
+		font-weight: bold;
+		width: 12em;			   
+		}		
+		#button {
+		width: 12em; 
+		background-color: rgb(192, 192, 192);
+		border: 1px solid black;  
+		margin-left: 12em;
+		}
+		p {
+		color: blue;
+		}
 	</style>
 	
  	<fieldset>
@@ -109,32 +105,58 @@ input {
 			<input type="submit" name="Logout" id="button" value="Logout">
 		</form>
 	</fieldset>
-		 <form action="task.php" method="post">			
-					<fieldset>
-					<legend>Tasks Managment</legend>
-					<label>Tasks:</label>
-					<select name="tasks_available" id="tasks_available"><br>
-				    	<option value="c">Cleaning</option>
-				    	<option value="p">Painting</option>
-						<option value="ch">Childcare</option>
-						<option value="f">Food distribution</option>
-					</select><br>
-					
-					<label>Date:</label>
-					<input type="date" name="starting_date" id="starting_date" ><br>
-					
-					<label>Time slots:</label>
-					<select name="Time_Slots" id="Time_Slot"><br>
-				    	<option value="1">9:30am-10:30am</option>
-				    	<option value="2">12:30pm-1:30pm</option>
-						<option value="ch">5:30pm-6:30pm</option>
-					</select><br>
-					<label>Locations:</label>
-					<select name="Locations" id="Locations"><br>
-				    	<option value="d">Durham</option>
-				    	<option value="a">Apex</option>
-						<option value="ch">Chapel Hill</option>
-					</select><br><br>
-					
-					 <input type="submit" name="action" id="button" value="Submit">
-           </fieldset>
+	<fieldset>
+		<form action="task_admin.php" method="post">			
+			<legend>Tasks Managment</legend>
+			<table>
+				<tr>
+					<th>Volunteer</th>
+					<th>Task</th>
+					<th>Description</th>
+					<th>Persons</th>
+					<th>Location</th>
+					<th>Time</th>
+					<th>Scheduled By</th>
+				</tr>
+				<?php
+				$tasks = get_tasks();
+				$vols = get_volunteers();
+				foreach ($tasks as $task) {
+					print("<tr>");
+					if ($task["volunteerID"]) {
+						$volunteer = get_volunteer($task["volunteerID"]);
+						$vname = $volunteer["last_name"] . ", " . $volunteer["first_name"] . " - " . $volunteer["email"];
+						if ($task["assignerID"] == $task["volunteerID"]) {
+							$aname = $vname;
+						} else {
+							$assigner = get_volunteer($task["assignerID"]);
+							$aname = $assigner["last_name"] . ", " . $assigner["first_name"] . " - " . $assigner["email"];
+						}
+						print_r("<td>" . $vname . "</td>");
+					} else {
+						$vname = "-";
+						print('<td><select name="assign_volunteer" id="assign_volunteer"><br>');
+						print('<option value="-"></option>');
+						foreach($vols as $vol) {
+							$vname = $vol["last_name"] . ", " . $vol["first_name"] . " - " . $vol["email"];
+							print('<option value="' . $vol["volunteerID"] . '">' . $vname . '</option>');
+						}
+						print("</select></td>");
+						$aname = "-";
+					}
+						print("<td>" . $task["title"] . "</td>");
+						print("<td>" . $task["description"] . "</td>");
+						print("<td>" . $task["personsNeeded"] . "</td>");
+						print("<td>" . $task["location"] . "</td>");
+						print("<td>" . $task["scheduledTime"] . "</td>");
+						print("<td>" . $aname . "</td>");
+					print("</tr>");
+				}
+				?>
+			</table>
+			<input type="hidden" name="action" value="update_tasks">
+			<input type="submit" name="update_tasks" id="button" value="Update Tasks">
+		</form>
+	</fieldset>
+</body>
+</html>
