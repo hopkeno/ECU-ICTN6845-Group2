@@ -16,7 +16,7 @@ function get_tasks($volunteerId = null) {
         $query = 'SELECT * FROM tasks WHERE volunteerID = :volId';
         $statement = $db->prepare($query);
         $statement->bindValue(':volId', $volunteerId);
-        } else {
+    } else {
         $query = 'SELECT * FROM tasks';
         $statement = $db->prepare($query);
     }
@@ -42,6 +42,7 @@ function add_task($task) {
 
 function assign_task($taskId,$volunteerId,$assignerId) {
     //assigns a task to a user, and records who made the assignment
+    global $db;
     $query = 'UPDATE tasks SET volunteerID = :volId, assignerID = :assignId WHERE taskID = :taskId;';
     $statement = $db->prepare($query);
     $statement->bindValue(':volId', $volunteerId);    
@@ -53,6 +54,7 @@ function assign_task($taskId,$volunteerId,$assignerId) {
 
 function unassign_task($taskId) {
     //unassigns a task so it is no longer assigned to a volunteer
+    global $db;
     $query = 'UPDATE tasks SET volunteerID = null, assignerID = null WHERE taskID = :taskId;';
     $statement = $db->prepare($query);
     $statement->bindValue(':taskId', $taskId);    
@@ -62,6 +64,7 @@ function unassign_task($taskId) {
 
 function remove_task($taskId) {
     //unassigns a task so it is no longer assigned to a volunteer
+    global $db;
     $query = 'DELETE FROM tasks WHERE taskID = :taskId;';
     $statement = $db->prepare($query);
     $statement->bindValue(':taskId', $taskId);    
