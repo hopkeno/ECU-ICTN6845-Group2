@@ -107,7 +107,7 @@ require_once("task_db.php");
 	</fieldset>
 	<fieldset>
 		<form action="index.php" method="post">			
-			<legend>Tasks Managment</legend>
+			<legend>Task Assignments</legend>
 			<table>
 				<tr>
 					<th>Volunteer</th>
@@ -124,32 +124,32 @@ require_once("task_db.php");
 				foreach ($tasks as $task) {
 					print("<tr>");
 					if ($task["volunteerID"]) {
-						$volunteer = get_volunteer($task["volunteerID"]);
-						$vname = $volunteer["last_name"] . ", " . $volunteer["first_name"] . " - " . $volunteer["email"];
-						if ($task["assignerID"] == $task["volunteerID"]) {
-							$aname = $vname;
-						} else {
-							$assigner = get_volunteer($task["assignerID"]);
-							$aname = $assigner["last_name"] . ", " . $assigner["first_name"] . " - " . $assigner["email"];
-						}
-						print_r("<td>" . $vname . "</td>");
+						// if the task has a volunteer, get the assigner
+						$assigner = get_volunteer($task["assignerID"]);
+						$aname = $assigner["last_name"] . ", " . $assigner["first_name"] . " - " . $assigner["email"];
 					} else {
-						$vname = "-";
-						print('<td><select name="assign_volunteer[]" id="assign_volunteer"><br>');
-						print('<option value="-"></option>');
-						foreach($vols as $vol) {
-							$vname = $vol["last_name"] . ", " . $vol["first_name"] . " - " . $vol["email"];
-							print('<option value="' . $task["taskID"] . "," . $vol["volunteerID"] . '">' . $vname . '</option>');
-						}
-						print("</select></td>");
 						$aname = "-";
 					}
-						print("<td>" . $task["title"] . "</td>");
-						print("<td>" . $task["description"] . "</td>");
-						print("<td>" . $task["personsNeeded"] . "</td>");
-						print("<td>" . $task["location"] . "</td>");
-						print("<td>" . $task["scheduledTime"] . "</td>");
-						print("<td>" . $aname . "</td>");
+					//create the dropdown selection for volunteer
+					print('<td><select name="assign_volunteer[]" id="assign_volunteer"><br>');
+					// always start with a blank option used to unassign a volunteer
+					print('<option value="' . $task["taskID"] . '",-></option>');
+					//enumerate the volunteers and build the dropdown
+					foreach($vols as $vol) {
+						$vname = $vol["last_name"] . ", " . $vol["first_name"] . " - " . $vol["email"];
+						if ($vol["volunteerID"] != $task["volunteerID"]) {
+							print('<option value="' . $task["taskID"] . "," . $vol["volunteerID"] . '">' . $vname . '</option>');
+						} else {
+							print('<option value="' . $task["taskID"] . "," . $vol["volunteerID"] . '" selected>' . $vname . '</option>');
+						}
+					}
+					print("</select></td>");
+					print("<td>" . $task["title"] . "</td>");
+					print("<td>" . $task["description"] . "</td>");
+					print("<td>" . $task["personsNeeded"] . "</td>");
+					print("<td>" . $task["location"] . "</td>");
+					print("<td>" . $task["scheduledTime"] . "</td>");
+					print("<td>" . $aname . "</td>");
 					print("</tr>");
 				}
 				?>

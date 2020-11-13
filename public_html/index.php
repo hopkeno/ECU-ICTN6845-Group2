@@ -53,7 +53,11 @@ switch($action) {
             foreach ($assignments as $task) {
                 if ($task != "-") {
                     $tdata = explode(",", $task);
-                    assign_task($tdata[0],$tdata[1],$_SESSION['volunteerID']);
+                    if (count($tdata) == 1) {
+                        unassign_task($tdata[0]);
+                    } else {
+                        assign_task($tdata[0],$tdata[1],$_SESSION['volunteerID']);
+                    }
                 }
             }
             include("task_admin.php");
