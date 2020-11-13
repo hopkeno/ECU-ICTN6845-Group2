@@ -106,7 +106,7 @@ require_once("task_db.php");
 		</form>
 	</fieldset>
 	<fieldset>
-		<form action="task_admin.php" method="post">			
+		<form action="index.php" method="post">			
 			<legend>Tasks Managment</legend>
 			<table>
 				<tr>
@@ -135,11 +135,11 @@ require_once("task_db.php");
 						print_r("<td>" . $vname . "</td>");
 					} else {
 						$vname = "-";
-						print('<td><select name="assign_volunteer" id="assign_volunteer"><br>');
+						print('<td><select name="assign_volunteer[]" id="assign_volunteer"><br>');
 						print('<option value="-"></option>');
 						foreach($vols as $vol) {
 							$vname = $vol["last_name"] . ", " . $vol["first_name"] . " - " . $vol["email"];
-							print('<option value="' . $vol["volunteerID"] . '">' . $vname . '</option>');
+							print('<option value="' . $task["taskID"] . "," . $vol["volunteerID"] . '">' . $vname . '</option>');
 						}
 						print("</select></td>");
 						$aname = "-";
@@ -154,8 +154,8 @@ require_once("task_db.php");
 				}
 				?>
 			</table>
-			<input type="hidden" name="action" value="update_tasks">
-			<input type="submit" name="update_tasks" id="button" value="Update Tasks">
+			<input type="hidden" name="action" value="assign_volunteer">
+			<input type="submit" id="button" value="Update Tasks">
 		</form>
 	</fieldset>
 </body>
