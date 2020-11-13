@@ -3,6 +3,7 @@
 session_start();
 require_once('database.php');
 require_once('user_db.php');
+require_once('task_db.php');
 
 // Determine action
 $action = filter_input(INPUT_POST,'action');
@@ -46,10 +47,27 @@ switch($action) {
             include("task.php");
         }
         break;
+    case 'assign_volunteer':
+        if ($_SESSION['is_admin']) {
+            $assignments = filter_input(INPUT_POST, 'assign_volunteer', FILTER_DEFAULT , FILTER_REQUIRE_ARRAY);
+            foreach ($assignments as $task) {
+                if ($task != "-") {
+                    $tdata = explode(",", $task);
+                    assign_task($tdata[0],$tdata[1],$_SESSION['volunteerID']);
+                }
+            }
+            include("task_admin.php");
+        } else {
+            include("task.php");
+        }
+        break;
     case 'logout':
         $_SESSION = array();
         session_destroy();
         $login_message = 'You have been logged out.';
+        include("index.php");
+        break;
+    default:
         include("index.php");
         break;
 }
