@@ -47,6 +47,15 @@ switch($action) {
             include("task.php");
         }
         break;
+    case 'remove_task':
+        if ($_SESSION['is_admin']) {
+            $tid = filter_input(INPUT_GET, 'taskid');
+            remove_task($tid);
+            header("Location: index.php");
+        } else {
+            include("task.php");
+        }
+    break;
     case 'assign_volunteer':
         if ($_SESSION['is_admin']) {
             $assignments = filter_input(INPUT_POST, 'assign_volunteer', FILTER_DEFAULT , FILTER_REQUIRE_ARRAY);

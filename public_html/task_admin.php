@@ -150,6 +150,7 @@ require_once("task_db.php");
 					print("<td>" . $task["location"] . "</td>");
 					print("<td>" . $task["scheduledTime"] . "</td>");
 					print("<td>" . $aname . "</td>");
+					print("<td><a href=\"index.php?action=remove_task&taskid=" . $task['taskID'] . "\">Delete Task</a>");
 					print("</tr>");
 				}
 				?>
@@ -158,5 +159,6 @@ require_once("task_db.php");
 			<input type="submit" id="button" value="Update Tasks">
 		</form>
 	</fieldset>
+	
 </body>
 </html>
