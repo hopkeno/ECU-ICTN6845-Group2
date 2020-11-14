@@ -63,7 +63,7 @@ function unassign_task($taskId) {
 }
 
 function remove_task($taskId) {
-    //unassigns a task so it is no longer assigned to a volunteer
+    //deletes a task from the database
     global $db;
     $query = 'DELETE FROM tasks WHERE taskID = :taskId;';
     $statement = $db->prepare($query);
