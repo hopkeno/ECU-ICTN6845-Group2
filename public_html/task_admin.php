@@ -163,24 +163,36 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 	<fieldset>
 		<legend>Create Task</legend>
 		<form action="index.php" method="post">			
-				<label>Task Name:</label>
-				<input type="text" name="task_title"><br>
-				<label>Task Description:</label>
-				<input type="textbox" name="task_description"><br>
-				<label>Persons Required:</label>
-				<select name="task_personsNeeded">
-				<?php
-					for ($i=1; $i <= $max_volunteers ; $i++) { 
-						print("<option value=\"$i\">$i</option>");
-					}
-				?>
-				</select><br>
-				<label>Scheduled Date:</label>
-				<input type="date" name="task_scheduledTime" ><br>
-				<label>Location:</label>
-				<input type="text" name="task_location" ><br>
-				<input type="hidden" name="action" value="create_task">
-				<input type="submit" id="button" value="Create Task">
+				<table>
+				<tr>
+					<th>Task Name:</th>
+					<td><input type="text" name="task_title"></td>
+				</tr>	
+				<tr>
+					<th>Task Description:</th>
+					<td><input type="textbox" name="task_description"></td>
+				</tr>
+				<tr>
+					<th>Persons Required:</th>
+					<td><select name="task_personsNeeded">
+					<?php
+						for ($i=1; $i <= $max_volunteers ; $i++) { 
+							print("<option value=\"$i\">$i</option>");
+						}
+					?>
+					</select></td>
+				</tr>
+				<tr>
+					<th>Scheduled Date:</th>
+					<td><input type="date" name="task_scheduledTime" ></td>	
+				</tr>
+				<tr>
+					<th>Location:</th>
+					<td><input type="text" name="task_location" ></td>
+				</tr>
+			</table>
+			<input type="hidden" name="action" value="create_task">
+			<input type="submit" id="button" value="Create Task">
 		</form>
 	</fieldset>
 	
