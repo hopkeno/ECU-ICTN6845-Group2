@@ -10,6 +10,15 @@ function get_unassigned() {
     return $results;
 }
 
+function is_assigned($taskID) {
+    $task = get_task($taskID);
+    if ($task["volunteerID"]) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function get_tasks($volunteerId = null) {
     global $db;
     if ($volunteerId) {
@@ -26,6 +35,17 @@ function get_tasks($volunteerId = null) {
     return $results;
 }
 
+function get_task($taskID) {
+    global $db;
+    $query = 'SELECT * FROM tasks WHERE taskID = :taskId';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':taskId', $taskID);
+    $statement->execute();
+    $result = $statement->fetch();
+    $statement->closeCursor();
+    return $result;
+}
+
 function add_task($task) {
     //adds a task to the db
     global $db;
@@ -33,8 +53,8 @@ function add_task($task) {
     $statement = $db->prepare($query);
     $statement->bindValue(':title', $task["title"]);    
     $statement->bindValue(':descr', $task["description"]);
-    $statement->bindValue(':persons', $task["persons"]);    
-    $statement->bindValue(':sched', $task["sched"]);
+    $statement->bindValue(':persons', $task["personsNeeded"]);    
+    $statement->bindValue(':sched', $task["scheduledTime"]);
     $statement->bindValue(':loc', $task["location"]);
     $statement->execute();
     $statement->closeCursor();
