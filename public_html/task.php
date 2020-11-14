@@ -161,5 +161,4 @@ input {
 				}
 			?>
 			</table>
-		<input type="submit" name="action" id="button" value="Change my submission">
 	</fieldset>
