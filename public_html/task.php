@@ -85,25 +85,9 @@ input {
 	</style>
 	
 	<fieldset>
-		<legend>Session Info</legend>
-		<table>
-			<tr>
-				<th>Username:</th>
-				<td><?php print($_SESSION['username']); ?></td>
-			</tr>
-			<tr>
-				<th>First Name:</th>
-				<td><?php print($_SESSION['first_name']); ?></td>
-			</tr>
-			<tr>
-				<th>Last Name:</th>
-				<td><?php print($_SESSION['last_name']); ?></td>
-			</tr>
-			<tr>
-				<th>Email:</th>
-				<td><?php print($_SESSION['email']); ?></td>
-			</tr>
-		</table>
+		<legend>Volunteer Info</legend>
+ 		<h2>Welcome <?php print($_SESSION['first_name']); ?></h2>
+		Email: <?php print($_SESSION['email']); ?><br>
 		<form action="index.php" method="post" id="logout">
 			<input type="hidden" name="action" value="logout">
 			<input type="submit" name="Logout" id="button" value="Logout">
