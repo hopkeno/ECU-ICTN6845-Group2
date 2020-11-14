@@ -3,6 +3,7 @@ require_once('valid_user.php');
 require_once("database.php");
 require_once("user_db.php");
 require_once("task_db.php");
+$max_volunteers = 10;	//maximum number of volunteers needed for a task
 ?>
 
 <!DOCTYPE html>
