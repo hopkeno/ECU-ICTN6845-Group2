@@ -74,17 +74,26 @@ switch($action) {
         if ($_SESSION['is_admin']) {
             $assignments = filter_input(INPUT_POST, 'assign_volunteer', FILTER_DEFAULT , FILTER_REQUIRE_ARRAY);
             foreach ($assignments as $task) {
-                if ($task != "-") {
-                    $tdata = explode(",", $task);
-                    if (count($tdata) == 1) {
-                        unassign_task($tdata[0]);
-                    } else {
-                        assign_task($tdata[0],$tdata[1],$_SESSION['volunteerID']);
-                    }
+                $tdata = explode(",",$task);
+                $tid = $tdata[0];
+                $vid = $tdata[1];
+                $taskinfo = get_task($tid);
+                $assigned = is_assigned($tid);  //see if the task is assigned
+                if ($vid == "-" && $assigned) {
+                    //if the volunteer ID is blank and the task was previously assigned, unassign it 
+                    unassign_task($tid);
+                } else if ($assigned && $vid != $taskinfo['volunteerID']) {
+                    //if the task was previously assigned to a different volunteer, reassign it
+                    assign_task($tid,$vid,$_SESSION['volunteerID']);
+                } else if (!$assigned) {
+                    //otherwise, if it is unassigned, assign it as directed
+                    assign_task($tid,$vid,$_SESSION['volunteerID']);
                 }
             }
             include("task_admin.php");
         } else {
+            $taskid = filter_input(INPUT_POST, 'signup_taskid');
+            assign_task($taskid,$_SESSION["volunteerID"],$_SESSION["volunteerID"]);
             include("task.php");
         }
         break;
