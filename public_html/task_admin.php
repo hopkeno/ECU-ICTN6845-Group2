@@ -107,8 +107,8 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 		</form>
 	</fieldset>
 	<fieldset>
+		<legend>Task Assignments</legend>
 		<form action="index.php" method="post">			
-			<legend>Task Assignments</legend>
 			<table>
 				<tr>
 					<th>Volunteer</th>
@@ -161,8 +161,8 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 		</form>
 	</fieldset>
 	<fieldset>
+		<legend>Create Task</legend>
 		<form action="index.php" method="post">			
-			<legend>Create Task</legend>
 				<label>Task Name:</label>
 				<input type="text" name="task_title"><br>
 				<label>Task Description:</label>
