@@ -55,7 +55,21 @@ switch($action) {
         } else {
             include("task.php");
         }
-    break;
+        break;
+    case 'create_task':
+        if ($_SESSION['is_admin']) {
+            $task = array();
+            $task["title"] = filter_input(INPUT_POST, 'task_title');
+            $task["description"] = filter_input(INPUT_POST, 'task_description');
+            $task["personsNeeded"] = filter_input(INPUT_POST, 'task_personsNeeded');
+            $task["scheduledTime"] = filter_input(INPUT_POST, 'task_scheduledTime');
+            $task["location"] = filter_input(INPUT_POST, 'task_location');
+            add_task($task);
+            header("Location: index.php");
+        } else {
+            include("task.php");
+        }
+        break;
     case 'assign_volunteer':
         if ($_SESSION['is_admin']) {
             $assignments = filter_input(INPUT_POST, 'assign_volunteer', FILTER_DEFAULT , FILTER_REQUIRE_ARRAY);

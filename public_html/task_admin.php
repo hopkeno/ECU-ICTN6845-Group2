@@ -156,7 +156,30 @@ require_once("task_db.php");
 				?>
 			</table>
 			<input type="hidden" name="action" value="assign_volunteer">
-			<input type="submit" id="button" value="Update Tasks">
+			<input type="submit" id="button" value="Update Volunteers">
+		</form>
+	</fieldset>
+	<fieldset>
+		<form action="index.php" method="post">			
+			<legend>Create Task</legend>
+				<label>Task Name:</label>
+				<input type="text" name="task_title"><br>
+				<label>Task Description:</label>
+				<input type="textbox" name="task_description"><br>
+				<label>Persons Required:</label>
+				<select name="task_personsNeeded">
+				<?php
+					for ($i=1; $i <= $max_volunteers ; $i++) { 
+						print("<option value=\"$i\">$i</option>");
+					}
+				?>
+				</select><br>
+				<label>Scheduled Date:</label>
+				<input type="date" name="task_scheduledTime" ><br>
+				<label>Location:</label>
+				<input type="text" name="task_location" ><br>
+				<input type="hidden" name="action" value="create_task">
+				<input type="submit" id="button" value="Create Task">
 		</form>
 	</fieldset>
 	
