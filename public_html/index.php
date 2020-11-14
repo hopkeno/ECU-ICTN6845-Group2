@@ -70,6 +70,11 @@ switch($action) {
             include("task.php");
         }
         break;
+    case 'cancel_signup':
+        $taskid = filter_input(INPUT_POST, 'cancel_taskid');
+        unassign_task($taskid);
+        include("task.php");
+        break;
     case 'assign_volunteer':
         if ($_SESSION['is_admin']) {
             $assignments = filter_input(INPUT_POST, 'assign_volunteer', FILTER_DEFAULT , FILTER_REQUIRE_ARRAY);

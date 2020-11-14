@@ -129,16 +129,37 @@ input {
 		</form>
 	</fieldset>
 	<fieldset>
-		<p>Volunteers Submission information:</p><br><br>
-		<?php
-		$tasks = get_tasks($_SESSION['volunteerID']);
-		foreach ($tasks as $task) {
-			print($task["title"] . "<br>");
-			print($task["description"] . "<br>");
-			print($task["personsNeeded"] . "<br>");
-			print($task["location"] . "<br>");
-			print($task["scheduledTime"] . "<br>");
-		}
-		?>
+		<legend>My Volunteer Signups</legend>
+		<table>
+			<tr>
+				<th></th>
+				<th>Task Title</th>
+				<th>Task Description</th>
+				<th>Number of People Needed</th>
+				<th>Location</th>
+				<th>Scheduled Time</th>
+			</tr>
+			<?php
+				$tasks = get_tasks($_SESSION['volunteerID']);
+				foreach ($tasks as $task) {
+					?>
+					<tr>
+						<td>
+						<form action="index.php" method="post">
+							<input type="hidden" name="action" value="cancel_signup">
+							<input type="hidden" name="cancel_taskid" value="<?php print($task["taskID"]); ?>">
+							<input type="submit" name="cancel_button" value="Cancel My Signup">
+						</form>
+						</td>
+						<?php
+						print("<td>" . $task["title"] . "</td>");
+						print("<td>" . $task["description"] . "</td>");
+						print("<td>" . $task["personsNeeded"] . "</td>");
+						print("<td>" . $task["location"] . "</td>");
+						print("<td>" . $task["scheduledTime"] . "</td>");
+					print("</tr>");
+				}
+			?>
+			</table>
 		<input type="submit" name="action" id="button" value="Change my submission">
 	</fieldset>
