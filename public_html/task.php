@@ -84,22 +84,16 @@ input {
  }
 	</style>
 	
-	<fieldset>
-		<legend>Volunteer Info</legend>
- 		<h2>Welcome <?php print($_SESSION['first_name']); ?></h2>
-		Email: <?php print($_SESSION['email']); ?><br>
 		<form action="index.php" method="post" id="logout">
 			<input type="hidden" name="action" value="logout">
 			<input type="submit" name="Logout" id="button" value="Logout">
 		</form>
-	</fieldset>
 	<fieldset>
 			<legend>Available Volunteer Opportunities</legend>
 			<table>
 				<tr>
  					<th></th>
 					<th>Task Title</th>
-					<th>Task Description</th>
 					<th>Number of People Needed</th>
 					<th>Location</th>
 					<th>Scheduled Time</th>
@@ -118,7 +112,6 @@ input {
 							</td>
 							<?php
 							print("<td>" . $task["title"] . "</td>");
-							print("<td>" . $task["description"] . "</td>");
 							print("<td>" . $task["personsNeeded"] . "</td>");
 							print("<td>" . $task["location"] . "</td>");
 							print("<td>" . $task["scheduledTime"] . "</td>");
@@ -128,13 +121,13 @@ input {
 			</table>
 		</form>
 	</fieldset>
+
 	<fieldset>
-		<legend>My Volunteer Signups</legend>
+		<legend>My Signups</legend>
 		<table>
 			<tr>
 				<th></th>
 				<th>Task Title</th>
-				<th>Task Description</th>
 				<th>Number of People Needed</th>
 				<th>Location</th>
 				<th>Scheduled Time</th>
@@ -153,7 +146,6 @@ input {
 						</td>
 						<?php
 						print("<td>" . $task["title"] . "</td>");
-						print("<td>" . $task["description"] . "</td>");
 						print("<td>" . $task["personsNeeded"] . "</td>");
 						print("<td>" . $task["location"] . "</td>");
 						print("<td>" . $task["scheduledTime"] . "</td>");

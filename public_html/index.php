@@ -60,7 +60,6 @@ switch($action) {
         if ($_SESSION['is_admin']) {
             $task = array();
             $task["title"] = filter_input(INPUT_POST, 'task_title');
-            $task["description"] = filter_input(INPUT_POST, 'task_description');
             $task["personsNeeded"] = filter_input(INPUT_POST, 'task_personsNeeded');
             $task["scheduledTime"] = filter_input(INPUT_POST, 'task_scheduledTime');
             $task["location"] = filter_input(INPUT_POST, 'task_location');

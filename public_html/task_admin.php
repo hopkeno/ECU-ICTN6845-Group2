@@ -113,7 +113,6 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 				<tr>
 					<th>Volunteer</th>
 					<th>Task</th>
-					<th>Description</th>
 					<th>Persons</th>
 					<th>Location</th>
 					<th>Time</th>
@@ -127,7 +126,7 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 					if ($task["volunteerID"]) {
 						// if the task has a volunteer, get the assigner
 						$assigner = get_volunteer($task["assignerID"]);
-						$aname = $assigner["last_name"] . ", " . $assigner["first_name"] . " - " . $assigner["email"];
+						$aname = $assigner["username"];
 					} else {
 						$aname = "-";
 					}
@@ -146,7 +145,6 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 					}
 					print("</select></td>");
 					print("<td>" . $task["title"] . "</td>");
-					print("<td>" . $task["description"] . "</td>");
 					print("<td>" . $task["personsNeeded"] . "</td>");
 					print("<td>" . $task["location"] . "</td>");
 					print("<td>" . $task["scheduledTime"] . "</td>");
@@ -168,10 +166,6 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 					<th>Task Name:</th>
 					<td><input type="text" name="task_title"></td>
 				</tr>	
-				<tr>
-					<th>Task Description:</th>
-					<td><input type="textbox" name="task_description"></td>
-				</tr>
 				<tr>
 					<th>Persons Required:</th>
 					<td><select name="task_personsNeeded">

@@ -49,10 +49,9 @@ function get_task($taskID) {
 function add_task($task) {
     //adds a task to the db
     global $db;
-    $query = 'INSERT INTO tasks (title,description,personsNeeded,scheduledTime,location) VALUES (:title,:descr,:persons,:sched,:loc);';
+    $query = 'INSERT INTO tasks (title,personsNeeded,scheduledTime,location) VALUES (:title,:persons,:sched,:loc);';
     $statement = $db->prepare($query);
     $statement->bindValue(':title', $task["title"]);    
-    $statement->bindValue(':descr', $task["description"]);
     $statement->bindValue(':persons', $task["personsNeeded"]);    
     $statement->bindValue(':sched', $task["scheduledTime"]);
     $statement->bindValue(':loc', $task["location"]);
