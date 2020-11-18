@@ -76,3 +76,5 @@ include("header.php");
 			?>
 			</table>
 	</fieldset>
+
+<?php include("footer.php"); ?>

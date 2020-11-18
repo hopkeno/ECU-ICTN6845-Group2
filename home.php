@@ -25,17 +25,8 @@
 		   <input type="submit"  id="button" value="Register"><br><br>
 	   </fieldset>
    </form>
-
-		  
-
-	<style>
-	p{
-	text-align: centered;	
-	}
-	
-	</style>
 	
 </main>
 	
-	</body>
+<?php include("footer.php"); ?>
 

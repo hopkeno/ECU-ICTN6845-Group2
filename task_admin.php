@@ -125,5 +125,4 @@ include("header.php");
 		</form>
 	</fieldset>
 	
-</body>
-</html>
+<?php include("footer.php"); ?>
