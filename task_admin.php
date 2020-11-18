@@ -36,6 +36,8 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 	font-family: 'Dancing Script', cursive;
 	font-size: 120%;
 	padding-top: 0em;
+       text-align: center;
+			
 	} 
 		
 		fieldset {
