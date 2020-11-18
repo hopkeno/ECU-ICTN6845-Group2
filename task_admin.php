@@ -117,9 +117,20 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 			<table>
 				<tr>
 					<th>Volunteer:</th>
-					?php>
-					print('<td><select name="assign_volunteer[]" id="assign_volunteer"><br>');
-					?>
+					
+					<td><select name="assign_volunteer[]"> id="assign_volunteer"><br>');
+					?php>   
+						$tasks = get_tasks();
+						$vols = get_volunteers();
+				foreach ($tasks as $task) {
+					print("<tr>");
+					if ($task["volunteerID"]) {
+						// if the task has a volunteer, get the assigner
+						$assigner = get_volunteer($task["assignerID"]);
+						$aname = $assigner["username"];
+					} else {
+						$aname = "-";
+						?>
 						</select></td>
 		
 					
@@ -136,18 +147,7 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 					<th>Scheduled By:</th>
 				</tr>
 				<?php
-				$tasks = get_tasks();
-				$vols = get_volunteers();
-				foreach ($tasks as $task) {
-					print("<tr>");
-					if ($task["volunteerID"]) {
-						// if the task has a volunteer, get the assigner
-						$assigner = get_volunteer($task["assignerID"]);
-						$aname = $assigner["username"];
-					} else {
-						$aname = "-";
-					}
-					
+
 					// always start with a blank option used to unassign a volunteer
 					print('<option value="' . $task["taskID"] . ',-"></option>');
 					//enumerate the volunteers and build the dropdown
