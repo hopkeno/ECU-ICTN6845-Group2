@@ -7,7 +7,7 @@
 	background-color: white;
 	}
 	
-    	    
+    		    
    header { 
     
     background-image: -webkit-linear-gradient(45deg, white 0%, green 75%, black 110%);
@@ -19,11 +19,9 @@
 	font-size: 120%;
 	} 
 	
-	
-	fieldset {
+fieldset {
     border:2px solid black;
-     font-family: 'Varela Round', sans-serif;
-
+    font-family: 'Varela Round', sans-serif;
 }
 
 
@@ -74,9 +72,3 @@ legend {
 			margin-left: 2em;
 			
 		}
-		
-	
-
-		
-		
-	
