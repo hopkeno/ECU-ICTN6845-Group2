@@ -63,6 +63,19 @@ switch($action) {
             include("task.php");
         }
         break;
+    case 'update_task':
+        if ($_SESSION['is_admin']) {
+            $task = array();
+            $task["title"] = filter_input(INPUT_POST, 'task_title');
+            $task["personsNeeded"] = filter_input(INPUT_POST, 'task_personsNeeded');
+            $task["scheduledTime"] = filter_input(INPUT_POST, 'task_scheduledTime');
+            $task["location"] = filter_input(INPUT_POST, 'task_location');
+            update_task($task);
+            header("Location: index.php");
+        } else {
+            include("task.php");
+        }
+        break;    
     case 'create_task':
         if ($_SESSION['is_admin']) {
             $task = array();

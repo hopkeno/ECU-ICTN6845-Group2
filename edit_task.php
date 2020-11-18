@@ -116,7 +116,7 @@
 					<td><input type="text" name="task_location" value="<?php print($task['location']); ?>"></td>
 				</tr>
 			</table>
-			<input type="hidden" name="action" value="edit_task">
+			<input type="hidden" name="action" value="update_task">
 			<input type="submit" id="button" value="Update Task">
 		</form>
 	</fieldset>

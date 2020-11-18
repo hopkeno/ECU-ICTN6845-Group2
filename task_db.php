@@ -59,6 +59,20 @@ function add_task($task) {
     $statement->closeCursor();
 }
 
+function update_task($task) {
+    //adds a task to the db
+    global $db;
+    $query = 'UPDATE tasks SET title = :title, personsNeeded = :persons, scheduledTime = :sched, location = :loc);';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':title', $task["title"]);    
+    $statement->bindValue(':persons', $task["personsNeeded"]);    
+    $statement->bindValue(':sched', $task["scheduledTime"]);
+    $statement->bindValue(':loc', $task["location"]);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
+
 function assign_task($taskId,$volunteerId,$assignerId) {
     //assigns a task to a user, and records who made the assignment
     global $db;
