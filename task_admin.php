@@ -16,10 +16,11 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 
 <body>
 	<header>
-		<h1>East Carolina University </h1>
-		<h1>Cultural Center</h1>
+		
 		<img class="hands" src=images/hands.jpeg alt="hands" width="200">
 		<img class="raisedhands1" src=images/raisedhands1.jpeg alt="raisedhands1" width="200">
+		<h1>East Carolina University </h1>
+		<h1>Cultural Center</h1>
 		<link rel="preconnect" href="https://fonts.gstatic.com"> 
                <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" 
                rel="stylesheet">
