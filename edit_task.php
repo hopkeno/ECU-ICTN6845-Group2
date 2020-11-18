@@ -14,7 +14,7 @@
 				<table>
 				<tr>
 					<th>Task Name:</th>
-					<td><input type="text" name="task_title" value="<?php print($task['title']); ?>"</td>
+					<?php print("<td><input type=\"text\" name=\"task_title\" value=\"" . $task["title"] . "\"</td>"); ?>
 				</tr>	
 				<tr>
 					<th>Persons Required:</th>
