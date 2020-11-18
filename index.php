@@ -66,6 +66,7 @@ switch($action) {
     case 'update_task':
         if ($_SESSION['is_admin']) {
             $task = array();
+            $task["taskID"] = filter_input(INPUT_POST, 'task_id');
             $task["title"] = filter_input(INPUT_POST, 'task_title');
             $task["personsNeeded"] = filter_input(INPUT_POST, 'task_personsNeeded');
             $task["scheduledTime"] = filter_input(INPUT_POST, 'task_scheduledTime');
