@@ -116,12 +116,12 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 		<form action="index.php" method="post">			
 			<table>
 				<tr>
-					<th>Volunteer</th>
-					<th>Task</th>
-					<th>Persons</th>
-					<th>Location</th>
-					<th>Time</th>
-					<th>Scheduled By</th>
+					<th>Volunteer</th><br>
+					<th>Task</th><br>
+					<th>Persons</th><br>
+					<th>Location</th><br>
+					<th>Time</th><br>
+					<th>Scheduled By</th><br>
 				</tr>
 				<?php
 				$tasks = get_tasks();
