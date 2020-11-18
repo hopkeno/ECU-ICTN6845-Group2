@@ -37,15 +37,17 @@ include("header.php");
 		<legend>Task Assignments</legend>
 		<form action="index.php" method="post">			
 			<table data-toggle="table">
-			<tr>
-				<th>Volunteer:</th>
-				<th>Task:</th>
-				<th>Persons:</th>
-				<th>Location:</th>
-				<th>Time:</th>
-				<th>Scheduled By:</th>
-				<th>Task Actions:</th>
-			</tr>
+			<thead>
+				<tr class="tr-class-1">
+					<th>Volunteer:</th>
+					<th>Task:</th>
+					<th>Persons:</th>
+					<th>Location:</th>
+					<th>Time:</th>
+					<th>Scheduled By:</th>
+					<th>Task Actions:</th>
+				</tr>
+			</thead>
 			<?php
 				$tasks = get_tasks();
 				$vols = get_volunteers();
