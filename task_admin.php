@@ -18,22 +18,24 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 	<header>
 		<h1>East Carolina University </h1>
 		<h1>Cultural Center</h1>
-		<img class="hands" src=images/hands.jpeg alt="hands" width="200">	
+		<img class="hands" src=images/hands.jpeg alt="hands" width="200">
+		<img class="raisedhands1" src=images/raisedhands1.jpeg alt="raisedhands1" width="200">
+		<link rel="preconnect" href="https://fonts.gstatic.com"> 
+               <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" 
+               rel="stylesheet">
 	</header>
 	<style>
-		header {
-		background-image: -webkit-linear-gradient(45deg, white 0%, green 75%, black 110%);
-		background-image: -moz-linear-gradient(45deg, white 0%, green 75%, black 110%);
-		background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%%);
-		background-image: linear-gradient(45deg, white 0%, green 75%, black 110%);
-		border: 2px solid black;
-		text-align: center;
-		}
-		header img { 
-		float:left;
-		margin-top:0em;
-		margin-bottom:20em;
-		} 
+	 
+		header { 
+    background-image: -webkit-linear-gradient(45deg, white 0%, green 75%, black 110%);
+    background-image: -moz-linear-gradient(45deg, white 0%, green 75%, black 110%);
+    background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%);
+    background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%);
+	border: 2px solid black;
+	font-family: 'Dancing Script', cursive;
+	font-size: 120%;
+	padding-top: 0em;
+	} 
 		
 		fieldset {
 		margin: .5em;
