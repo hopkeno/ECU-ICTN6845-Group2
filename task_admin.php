@@ -37,22 +37,16 @@ include("header.php");
 		<legend>Task Assignments</legend>
 		<form action="index.php" method="post">			
 			<table>
-				<tr>
-					<th>Volunteer:</th>
-					
-				</tr>
-				<tr>
-					<th>Task:</th>
-				</tr>
-					<th>Persons:</th>
-				<tr>
-					<th>Location:</th>
-				</tr>
-					<th>Time</th>
-				</tr>
-					<th>Scheduled By:</th>
-				</tr>
-				<?php
+			<tr>
+				<th>Volunteer:</th>
+				<th>Task:</th>
+				<th>Persons:</th>
+				<th>Location:</th>
+				<th>Time:</th>
+				<th>Scheduled By:</th>
+				<th>Task Actions:</th>
+			</tr>
+			<?php
 				$tasks = get_tasks();
 				$vols = get_volunteers();
 				foreach ($tasks as $task) {
@@ -83,8 +77,8 @@ include("header.php");
 					print("<td>" . $task["location"] . "</td>");
 					print("<td>" . $task["scheduledTime"] . "</td>");
 					print("<td>" . $aname . "</td>");
-					print("<td><a href=\"index.php?action=edit_task&taskid=" . $task['taskID'] . "\">Edit Task</a>");
-					print("<td><a href=\"index.php?action=remove_task&taskid=" . $task['taskID'] . "\">Delete Task</a>");
+					print("<td><a href=\"index.php?action=edit_task&taskid=" . $task['taskID'] . "\">Edit</a><br>");
+					print("<a href=\"index.php?action=remove_task&taskid=" . $task['taskID'] . "\">Delete</a></td>");
 					print("</tr>");
 				}
 				?>
