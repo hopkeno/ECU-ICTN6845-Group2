@@ -8,9 +8,11 @@
 
 <body>
 	<header>
+	<img class="raisedhands1" src=images/raisedhands1.jpeg alt="raisedhands1" width="150">
+	<img class="hands" src=images/hands.jpeg alt="hands" width="150">
 	<h1>East Carolina University </h1>
 	<h1>Cultural Center</h1>
-    <img src=images/worldpeacelogo.jpeg alt="worldpeacelogo" width="150">	
+    	
 	</header>
 	
 	<h2>Volunteers page</h2>
