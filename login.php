@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Final project</title>
-    <link rel="stylesheet" href="styles/normalize.css">
-	<link rel="stylesheet" href="styles/main.css">
-   
-</head>
-<body>
-<header>
-	<h1>East Carolina University </h1>
-	<h1>Cultural Center</h1>
-</header>
+<?php 
+    include("header.php");
+?>
 <main>
     
    <form action="index.php" method="post" id="login_form"> 
