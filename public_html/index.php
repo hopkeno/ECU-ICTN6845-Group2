@@ -56,6 +56,14 @@ switch($action) {
             include("task.php");
         }
         break;
+    case 'edit_task':
+        if ($_SESSION['is_admin']) {
+            $tid = filter_input(INPUT_GET, 'taskid');
+            include("edit_task.php");
+        } else {
+            include("task.php");
+        }
+        break;
     case 'create_task':
         if ($_SESSION['is_admin']) {
             $task = array();
