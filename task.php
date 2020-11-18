@@ -17,7 +17,7 @@ require_once("task_db.php");
 	<header>
 		<h1>East Carolina University </h1>
 		<h1>Cultural Center</h1>
-		<img src=images/worldpeacelogo.jpeg alt="worldpeacelogo" width="150">	
+		<img class="hands" src=images/hands.jpeg alt="hands" width="200">	
 	</header>
 	<style>
 	header {

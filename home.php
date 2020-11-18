@@ -15,7 +15,7 @@
 
 <body>
 	<header>
-	<img class="raisedhands1" src=images/raisedhands1.jpeg alt="raisedhands1" width="200">
+	<img class="hands" src=images/hands.jpeg alt="hands" width="200">
 	<img class="hands" src=images/hands.jpeg alt="hands" width="200">
 	<h1>East Carolina University </h1>
 	<h1>Cultural Center</h1>
