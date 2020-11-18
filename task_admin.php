@@ -16,24 +16,29 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 
 <body>
 	<header>
-		<h1>East Carolina University </h1>
-		<h1>Cultural Center</h1>
-		<img class="hands" src=images/hands.jpeg alt="hands" width="200">	
+
+	<img class="raisedhands1" src=images/raisedhands1.jpeg alt="raisedhands1" width="200">
+	<img class="hands" src=images/hands.jpeg alt="hands" width="200">
+	<h1>East Carolina University </h1>
+	<h1>Cultural Center</h1>
+       <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" 
+               rel="stylesheet">
 	</header>
 	<style>
-		header {
-		background-image: -webkit-linear-gradient(45deg, white 0%, green 75%, black 110%);
-		background-image: -moz-linear-gradient(45deg, white 0%, green 75%, black 110%);
-		background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%%);
-		background-image: linear-gradient(45deg, white 0%, green 75%, black 110%);
-		border: 2px solid black;
-		text-align: center;
-		}
-		header img { 
-		float:left;
-		margin-top:0em;
-		margin-bottom:20em;
-		} 
+	 
+		header { 
+    background-image: -webkit-linear-gradient(45deg, white 0%, green 75%, black 110%);
+    background-image: -moz-linear-gradient(45deg, white 0%, green 75%, black 110%);
+    background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%);
+    background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%);
+	border: 2px solid black;
+	font-family: 'Dancing Script', cursive;
+	font-size: 150%;
+	padding-top: 0em;
+       text-align: center;
+			
+	} 
 		
 		fieldset {
 		margin: .5em;
@@ -111,12 +116,21 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 		<form action="index.php" method="post">			
 			<table>
 				<tr>
-					<th>Volunteer</th>
-					<th>Task</th>
-					<th>Persons</th>
-					<th>Location</th>
+					<th>Volunteer:</th>
+					<?php
+					print('<td><select name="assign_volunteer[]" id="assign_volunteer"><br>');
+					?>
+				</tr>
+				<tr>
+					<th>Task:</th>
+				</tr>
+					<th>Persons:</th>
+				<tr>
+					<th>Location:</th>
+				</tr>
 					<th>Time</th>
-					<th>Scheduled By</th>
+				</tr>
+					<th>Scheduled By:</th>
 				</tr>
 				<?php
 				$tasks = get_tasks();
@@ -130,8 +144,7 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 					} else {
 						$aname = "-";
 					}
-					//create the dropdown selection for volunteer
-					print('<td><select name="assign_volunteer[]" id="assign_volunteer"><br>');
+					
 					// always start with a blank option used to unassign a volunteer
 					print('<option value="' . $task["taskID"] . ',-"></option>');
 					//enumerate the volunteers and build the dropdown
