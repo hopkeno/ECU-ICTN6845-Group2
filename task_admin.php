@@ -117,7 +117,9 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 			<table>
 				<tr>
 					<th>Volunteer:</th>
+					<?php
 					print('<td><select name="assign_volunteer[]" id="assign_volunteer"><br>');
+					?>
 				</tr>
 				<tr>
 					<th>Task:</th>
