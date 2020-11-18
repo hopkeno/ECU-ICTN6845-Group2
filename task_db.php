@@ -60,10 +60,11 @@ function add_task($task) {
 }
 
 function update_task($task) {
-    //adds a task to the db
+    //updates a task in the db
     global $db;
-    $query = 'UPDATE tasks SET title = :title, personsNeeded = :persons, scheduledTime = :sched, location = :loc);';
+    $query = 'UPDATE tasks SET title = :title, personsNeeded = :persons, scheduledTime = :sched, location = :loc WHERE taskID = :taskid);';
     $statement = $db->prepare($query);
+    $statement->bindValue(':taskid', $task["taskID"]);
     $statement->bindValue(':title', $task["title"]);    
     $statement->bindValue(':persons', $task["personsNeeded"]);    
     $statement->bindValue(':sched', $task["scheduledTime"]);
