@@ -1,39 +1,29 @@
  
  
+	  
+ 
 	body { 
 	text-align: center;
 	background-color: white;
 	}
 	
-    .raisedhands1 { 
-	float:left;
-	margin-top:5em;
-	margin-bottom:20em;
-	
-	}  
-	 .hands{ 
-	float:left;
-	margin-top:1em;
-	margin-bottom:20em;
-	position: relative;
-	right:150px;
-	}  
-		  
-		    
+    	    
    header { 
+    
     background-image: -webkit-linear-gradient(45deg, white 0%, green 75%, black 110%);
     background-image: -moz-linear-gradient(45deg, white 0%, green 75%, black 110%);
     background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%);
-    background-image: linear-gradient(45deg, white 0%, green 75%, black 110%);
+    background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%);
 	border: 2px solid black;
+	font-family: 'Dancing Script', cursive;
+	font-size: 120%;
 	} 
 	
 	
-	
 	fieldset {
-    margin: .5em;
-    border:1px solid black;
-        
+    border:2px solid black;
+     font-family: 'Varela Round', sans-serif;
+
 }
 
 
@@ -42,6 +32,7 @@ legend {
     font-size: 120%;
 	text-align: left;
 }
+	
 	
 	h3{
 		text-align: center;
@@ -62,6 +53,8 @@ legend {
 			text-align: center;
 			padding-right: 1em;
 			position:absolute;
+			font-family: 'Varela Round', sans-serif;
+
 			}
 			
 	input {
@@ -79,7 +72,11 @@ legend {
 			background-color: rgb(192, 192, 192);
 			border: 2px solid black;  
 			margin-left: 2em;
+			
 		}
+		
+	
+
 		
 		
 	
