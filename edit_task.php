@@ -91,7 +91,7 @@
 				<table>
 				<tr>
 					<th>Task Name:</th>
-					<?php print("<td><input type=\"text\" name=\"task_title\" value=\"" . $task["title"] . "\"</td>"); ?>
+					<td><input type="text" name="task_title" value="<?php print($task['title']); ?>"></td>
 				</tr>	
 				<tr>
 					<th>Persons Required:</th>
@@ -109,11 +109,11 @@
 				</tr>
 				<tr>
 					<th>Scheduled Date:</th>
-					<td><input type="date" name="task_scheduledTime" <?php print($task['scheduledTime']); ?>></td>	
+					<td><input type="date" name="task_scheduledTime" value="<?php print($task['scheduledTime']); ?>"></td>	
 				</tr>
 				<tr>
 					<th>Location:</th>
-					<td><input type="text" name="task_location" <?php print($task['location']); ?>></td>
+					<td><input type="text" name="task_location" value="<?php print($task['location']); ?>"></td>
 				</tr>
 			</table>
 			<input type="hidden" name="action" value="edit_task">
