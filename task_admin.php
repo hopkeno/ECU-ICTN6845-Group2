@@ -34,7 +34,7 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
     background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%);
 	border: 2px solid black;
 	font-family: 'Dancing Script', cursive;
-	font-size: 120%;
+	font-size: 150%;
 	padding-top: 0em;
        text-align: center;
 			
