@@ -12,7 +12,7 @@ include("header.php");
 		</form>
 	<fieldset>
 			<legend>Available Volunteer Opportunities</legend>
-			<table>
+			<table data-toggle="table">
 				<tr>
  					<th></th>
 					<th>Task Title</th>
@@ -46,7 +46,7 @@ include("header.php");
 
 	<fieldset>
 		<legend>My Signups</legend>
-		<table>
+		<table data-toggle="table">
 			<tr>
 				<th></th>
 				<th>Task Title</th>
