@@ -22,6 +22,7 @@
     	
 	</header>
 	
+	
 	<h2>Volunteers page</h2>
     <main>
     <p>In order to sign up for tasks, you need to register first.</p>
