@@ -1,5 +1,5 @@
 # ECU-ICTN6845-Group2
-http://hopkinsje09.000webhostapp.com/ictn6845/group2/
+https://ecu-ictn6845.azurewebsites.net/
 
 Project topic 2:
 
