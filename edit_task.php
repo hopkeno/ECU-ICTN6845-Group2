@@ -5,7 +5,7 @@
     require_once("task_db.php");
     
     // Get the task data from the form
-    $tid = filter_input(INPUT_POST, "task_id");
+    $tid = filter_input(INPUT_GET, "task_id");
 	$task = get_task($tid);
 	$max_volunteers = 10;	//maximum number of volunteers needed for a task
 ?>

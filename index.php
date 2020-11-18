@@ -58,7 +58,6 @@ switch($action) {
         break;
     case 'edit_task':
         if ($_SESSION['is_admin']) {
-            $tid = filter_input(INPUT_GET, 'taskid');
             include("edit_task.php");
         } else {
             include("task.php");
