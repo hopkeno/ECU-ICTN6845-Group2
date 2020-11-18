@@ -149,8 +149,8 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 					print("<td>" . $task["location"] . "</td>");
 					print("<td>" . $task["scheduledTime"] . "</td>");
 					print("<td>" . $aname . "</td>");
-					print("<td><a href=\"index.php?action=remove_task&taskid=" . $task['taskID'] . "\">Delete Task</a>");
 					print("<td><a href=\"index.php?action=edit_task&taskid=" . $task['taskID'] . "\">Edit Task</a>");
+					print("<td><a href=\"index.php?action=remove_task&taskid=" . $task['taskID'] . "\">Delete Task</a>");
 					print("</tr>");
 				}
 				?>

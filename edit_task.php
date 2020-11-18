@@ -94,7 +94,7 @@
 					<td><input type="text" name="task_title" value="<?php print($task['title']); ?>"></td>
 				</tr>	
 				<tr>
-					<th>Persons Required:</th>
+					<th>Number of People Required:</th>
 					<td><select name="task_personsNeeded">
 					<?php
 						for ($i=1; $i <= 10 ; $i++) { 
