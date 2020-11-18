@@ -117,7 +117,6 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 			<table>
 				<tr>
 					<th>Volunteer:</th>
-					//create the dropdown selection for volunteer
 					print('<td><select name="assign_volunteer[]" id="assign_volunteer"><br>');
 				</tr>
 				<tr>
@@ -143,8 +142,7 @@ $max_volunteers = 10;	//maximum number of volunteers needed for a task
 					} else {
 						$aname = "-";
 					}
-					//create the dropdown selection for volunteer
-					print('<td><select name="assign_volunteer[]" id="assign_volunteer"><br>');
+					
 					// always start with a blank option used to unassign a volunteer
 					print('<option value="' . $task["taskID"] . ',-"></option>');
 					//enumerate the volunteers and build the dropdown
