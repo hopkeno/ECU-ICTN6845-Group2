@@ -38,7 +38,7 @@ include("header.php");
 							print("<td>" . $task["title"] . "</td>");
 							print("<td>" . $task["personsNeeded"] . "</td>");
 							print("<td>" . $task["location"] . "</td>");
-							print("<td>" . $task["scheduledTime"] . "</td>");
+							print("<td>" . date_format(date_create($task["scheduledTime"]),'g:ia \- l\, F jS\, Y') . "</td>");
 						print("</tr>");
 					}
 				?>
@@ -74,7 +74,7 @@ include("header.php");
 						print("<td>" . $task["title"] . "</td>");
 						print("<td>" . $task["personsNeeded"] . "</td>");
 						print("<td>" . $task["location"] . "</td>");
-						print("<td>" . $task["scheduledTime"] . "</td>");
+						print("<td>" . date_format(date_create($task["scheduledTime"]),'g:ia \- l\, F jS\, Y') . "</td>");
 					print("</tr>");
 				}
 			?>
