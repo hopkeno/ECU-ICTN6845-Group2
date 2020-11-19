@@ -12,7 +12,7 @@ include("header.php");
 		</form>
 	<fieldset>
 			<legend>Available Volunteer Opportunities</legend>
-			<table data-toggle="table" formatNoMatches="No available volunteer opportunities at this time">
+			<table data-toggle="table">
 				<thead>
 					<tr class="tr-class-1">
 						<th></th>
@@ -48,7 +48,7 @@ include("header.php");
 
 	<fieldset>
 		<legend>My Signups</legend>
-		<table data-toggle="table" formatNoMatches="You are not currently signed up for any volunteer opportunities">
+		<table data-toggle="table">
 			<thead>
 				<tr class="tr-class-1">
 					<th></th>
