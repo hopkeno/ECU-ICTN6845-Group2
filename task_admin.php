@@ -113,7 +113,7 @@ include("header.php");
 				</tr>
 				<tr>
 					<th>Scheduled Date:</th>
-					<td><input type="date" name="task_scheduledTime" ></td>	
+					<td><input type="datetime-local" name="task_scheduledTime" ></td>	
 				</tr>
 				<tr>
 					<th>Location:</th>

@@ -35,7 +35,7 @@
 				</tr>
 				<tr>
 					<th>Scheduled Date:</th>
-					<td><input type="date" name="task_scheduledTime" value="<?php print($task['scheduledTime']); ?>"></td>	
+					<td><input type="datetime-local" name="task_scheduledTime" value="<?php print($task['scheduledTime']); ?>"></td>	
 				</tr>
 				<tr>
 					<th>Location:</th>
