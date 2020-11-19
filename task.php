@@ -49,13 +49,15 @@ include("header.php");
 	<fieldset>
 		<legend>My Signups</legend>
 		<table data-toggle="table">
-			<tr>
-				<th></th>
-				<th>Task Title</th>
-				<th>Number of People Needed</th>
-				<th>Location</th>
-				<th>Scheduled Time</th>
-			</tr>
+			<thead>
+				<tr class="tr-class-1">
+					<th></th>
+					<th>Task Title</th>
+					<th>Number of People Needed</th>
+					<th>Location</th>
+					<th>Scheduled Time</th>
+				</tr>
+			</thead>
 			<?php
 				$tasks = get_tasks($_SESSION['volunteerID']);
 				foreach ($tasks as $task) {
