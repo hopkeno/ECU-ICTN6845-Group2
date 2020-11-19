@@ -77,7 +77,7 @@ include("header.php");
 					print("<td>" . $task["title"] . "</td>");
 					print("<td>" . $task["personsNeeded"] . "</td>");
 					print("<td>" . $task["location"] . "</td>");
-					print("<td>" . date('Y-m-d\TH:i', $task["scheduledTime"]) . "</td>");
+					print("<td>" . $task["scheduledTime"] . "</td>");
 					print("<td>" . $aname . "</td>");
 					print("<td align=\"center\">");
 					print("<a class=\"edit\" href=\"index.php?action=edit_task&taskid=" . $task['taskID'] . "\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>");
