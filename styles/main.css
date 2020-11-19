@@ -55,7 +55,7 @@ legend {
 
 			}
 			
-	input {
+	input,select {
 			width: 8em;
 			margin-bottom: .5em;
 			margin-left: 9em;
