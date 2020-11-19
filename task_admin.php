@@ -80,8 +80,7 @@ include("header.php");
 					print("<td>" . $task["scheduledTime"] . "</td>");
 					print("<td>" . $aname . "</td>");
 					print("<td><a href=\"index.php?action=edit_task&taskid=" . $task['taskID'] . "\">Edit</a><br>");
-					print("<a href=\"index.php?action=remove_task&taskid=" . $task['taskID'] . "\">Delete</a></td>");
-					print("<a class=\"remove\" href=\"index.php?action=remove_task&taskid=" . $task['taskID'] . "\" title=\"Remove\"><i class=\"fa fa-trash\"></i></a>");
+					print("<a class=\"remove\" href=\"index.php?action=remove_task&taskid=" . $task['taskID'] . "\" title=\"Remove\"><i class=\"fa fa-trash\"></i></a></td>");
 					print("</tr>");
 				}
 				?>
