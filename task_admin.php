@@ -96,27 +96,32 @@ include("header.php");
 		<legend>Create Task</legend>
 		<form action="index.php" method="post">			
 			<div id="create_task_form" text-align="left">
-				<label>Task Name:</label>
-				<input type="text" name="task_title">
-				<br>
-				<label>Persons Required:</label>
-				<select name="task_personsNeeded">
+			<table>
+				<tr>
+					<th>Task Name:</th>
+					<td><input type="text" name="task_title"></td>
+				</tr>	
+				<tr>
+					<th>Persons Required:</th>
+					<td><select name="task_personsNeeded">
 					<?php
 						for ($i=1; $i <= $max_volunteers ; $i++) { 
 							print("<option value=\"$i\">$i</option>");
 						}
 					?>
-				</select>
-				<br>
-				<label>Scheduled Date:</label>
-				<input type="date" name="task_scheduledTime" ></label>	
-				<br>
-				<label>Location:</label>
-				<input type="text" name="task_location" >
-				<br>
-				<input type="hidden" name="action" value="create_task">
-				<input type="submit" class="button" value="Create Task">
-			</div>
+					</select></td>
+				</tr>
+				<tr>
+					<th>Scheduled Date:</th>
+					<td><input type="date" name="task_scheduledTime" ></td>	
+				</tr>
+				<tr>
+					<th>Location:</th>
+					<td><input type="text" name="task_location" ></td>
+				</tr>
+			</table>
+			<input type="hidden" name="action" value="create_task">
+			<input type="submit" class="button" value="Create Task">
 		</form>
 	</fieldset>
 	
