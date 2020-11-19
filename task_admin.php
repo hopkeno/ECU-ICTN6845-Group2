@@ -39,13 +39,13 @@ include("header.php");
 			<table data-toggle="table">
 			<thead>
 				<tr class="tr-class-1">
-					<th>Volunteer:</th>
-					<th>Task:</th>
-					<th>Persons:</th>
-					<th>Location:</th>
-					<th>Time:</th>
-					<th>Scheduled By:</th>
-					<th>Task Actions:</th>
+					<th>Volunteer</th>
+					<th>Task</th>
+					<th>Persons</th>
+					<th>Location</th>
+					<th>Time</th>
+					<th>Scheduled By</th>
+					<th>Task Actions</th>
 				</tr>
 			</thead>
 			<?php
