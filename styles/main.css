@@ -1,9 +1,9 @@
-body { 
+body {
 	text-align: center;
 	background-color: white;
 }
-	    		    
-header { 
+
+header {
     background-image: -webkit-linear-gradient(45deg, white 0%, green 75%, black 110%);
     background-image: -moz-linear-gradient(45deg, white 0%, green 75%, black 110%);
     background-image: -o-linear-gradient(45deg, white 0%, green 75%, black 110%);
@@ -11,7 +11,8 @@ header {
 	border: 2px solid black;
 	font-family: 'Dancing Script', cursive;
 	font-size: 120%;
-} 
+}
+
 h1 {
 	font-size: 300%;
 	color: black;
@@ -33,28 +34,28 @@ legend {
     font-size: 120%;
 	text-align: left;
 }
-	
+
 label {
-		color: black;
-		float: center;
-		width: 8em;
-		font-weight: bold;
-		text-align: center;
-		padding-right: 1em;
-		position:absolute;
-		font-family: 'Varela Round', sans-serif;
+	color: black;
+	float: center;
+	width: 8em;
+	font-weight: bold;
+	text-align: center;
+	padding-right: 1em;
+	position:absolute;
+	font-family: 'Varela Round', sans-serif;
 }
-		
+
 input,select {
-		width: 8em;
-		margin-bottom: .5em;
-		margin-left: 9em;
+	width: 17em;
+	margin-bottom: .5em;
+	margin-left: 9em;
 }
-		
+
 input:focus {
 	border: 2px solid navy;
 }
-	
+
 .button {
 	width: 10em; 
 	background-color: rgb(192, 192, 192);
