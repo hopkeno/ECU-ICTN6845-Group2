@@ -36,7 +36,7 @@ include("header.php");
 	<fieldset>
 		<legend>Task Assignments</legend>
 		<form action="index.php" method="post">			
-			<table data-toggle="table">
+			<table data-toggle="table" formatNoMatches="No volunteer tasks exist">
 			<thead>
 				<tr class="tr-class-1">
 					<th>Volunteer:</th>
