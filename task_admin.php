@@ -30,7 +30,7 @@ include("header.php");
 		</table>
 		<form action="index.php" method="post" id="logout">
 			<input type="hidden" name="action" value="logout">
-			<input type="submit" name="Logout" id="button" value="Logout">
+			<input type="submit" name="Logout" class="button" value="Logout">
 		</form>
 	</fieldset>
 	<fieldset>
@@ -79,8 +79,9 @@ include("header.php");
 					print("<td>" . $task["location"] . "</td>");
 					print("<td>" . $task["scheduledTime"] . "</td>");
 					print("<td>" . $aname . "</td>");
-					print("<td>");
+					print("<td align=\"center\">");
 					print("<a class=\"edit\" href=\"index.php?action=edit_task&taskid=" . $task['taskID'] . "\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>");
+					print("    ");
 					print("<a class=\"remove\" href=\"index.php?action=remove_task&taskid=" . $task['taskID'] . "\" title=\"Remove\"><i class=\"fa fa-trash\"></i></a>");
 					print("</td>");
 					print("</tr>");
@@ -88,7 +89,7 @@ include("header.php");
 				?>
 			</table>
 			<input type="hidden" name="action" value="assign_volunteer">
-			<input type="submit" id="button" value="Update Volunteers">
+			<input type="submit" class="button" value="Save Changes">
 		</form>
 	</fieldset>
 	<fieldset>
@@ -119,7 +120,7 @@ include("header.php");
 				</tr>
 			</table>
 			<input type="hidden" name="action" value="create_task">
-			<input type="submit" id="button" value="Create Task">
+			<input type="submit" class="button" value="Create Task">
 		</form>
 	</fieldset>
 	

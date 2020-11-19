@@ -22,7 +22,7 @@
 		   <input type="password" name="password"  value=""><br><br>	
 		   <label>Verify Password:</label>
 		   <input type="password" name="password2"  value=""><br><br>	  
-		   <input type="submit"  id="button" value="Register"><br><br>
+		   <input type="submit"  class="button" value="Register"><br><br>
 	   </fieldset>
    </form>
 	

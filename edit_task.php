@@ -44,7 +44,7 @@
 			</table>
 			<input type="hidden" name="task_id" value="<?php print($tid); ?>">
 			<input type="hidden" name="action" value="update_task">
-			<input type="submit" id="button" value="Update Task">
+			<input type="submit" class="button" value="Update Task">
 		</form>
 	</fieldset>
 
