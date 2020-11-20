@@ -16,12 +16,8 @@ include("header.php");
 				<td><?php print($_SESSION['username']); ?></td>
 			</tr>
 			<tr>
-				<th>First Name:</th>
-				<td><?php print($_SESSION['first_name']); ?></td>
-			</tr>
-			<tr>
-				<th>Last Name:</th>
-				<td><?php print($_SESSION['last_name']); ?></td>
+				<th>Name:</th>
+				<td><?php print($_SESSION['first_name'] . " " . $_SESSION['last_name']); ?></td>
 			</tr>
 			<tr>
 				<th>Email:</th>
