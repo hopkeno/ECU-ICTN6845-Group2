@@ -6,7 +6,7 @@
     include("header.php");
     // Get the task data from the form
     $vid = filter_input(INPUT_GET, "volunteer_id");
-	$vol = get_volunteer($tid);
+	$vol = get_volunteer($vid);
 	if ($vol['is_admin']) { $admin_checkbox = "checked"; }
 ?>
 
