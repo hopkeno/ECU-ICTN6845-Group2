@@ -62,11 +62,14 @@ include("header.php");
 					print('<option value="' . $task["taskID"] . ',-"></option>');
 					//enumerate the volunteers and build the dropdown
 					foreach($vols as $vol) {
-						$vname = $vol["last_name"] . ", " . $vol["first_name"] . " - " . $vol["email"];
-						if ($vol["volunteerID"] != $task["volunteerID"]) {
-							print('<option value="' . $task["taskID"] . "," . $vol["volunteerID"] . '">' . $vname . '</option>');
-						} else {
-							print('<option value="' . $task["taskID"] . "," . $vol["volunteerID"] . '" selected>' . $vname . '</option>');
+						if ($vol["is_admin"] != 1) {
+							//skip admin users in volunteer selections
+							$vname = $vol["last_name"] . ", " . $vol["first_name"] . " - " . $vol["email"];
+							if ($vol["volunteerID"] != $task["volunteerID"]) {
+								print('<option value="' . $task["taskID"] . "," . $vol["volunteerID"] . '">' . $vname . '</option>');
+							} else {
+								print('<option value="' . $task["taskID"] . "," . $vol["volunteerID"] . '" selected>' . $vname . '</option>');
+							}
 						}
 					}
 					print("</select></td>");
