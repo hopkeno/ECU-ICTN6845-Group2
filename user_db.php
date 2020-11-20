@@ -15,6 +15,31 @@ function add_user($username,$password,$email,$first,$last) {
     $statement->closeCursor();
 }
 
+function delete_user($volID) {
+    //removes a user from the db
+    global $db;
+    $query = 'DELETE FROM users WHERE volunteerID = :vid;';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':vid', $volID);    
+    $statement->execute();
+    $statement->closeCursor();
+}
+
+function update_user($user) {
+    //updates a user in the db
+    global $db;
+    $query = 'UPDATE users SET username = :user, first_name = :cn, last_name = :sn, email = :email, is_admin = :adm  WHERE volunteerID = :volid;';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':volid', $user["volunteerID"]);
+    $statement->bindValue(':user', $user["username"]);
+    $statement->bindValue(':cn', $user["first_name"]);    
+    $statement->bindValue(':sn', $user["last_name"]);    
+    $statement->bindValue(':email', $user["email"]);
+    $statement->bindValue(':adm', $user["is_admin"]);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
 function user_exists($username) {
     //checks to see if a user exists in the db based on username
     global $db;
