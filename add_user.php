@@ -28,7 +28,7 @@
         } else {
             add_user($username,$password,$email,$firstname,$lastname);
             //Display the index
-            include("index.php");
+            header("Location: .");
         }
     }
 ?>
