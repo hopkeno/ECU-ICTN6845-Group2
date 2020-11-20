@@ -90,7 +90,7 @@ function get_volunteer($id) {
 function get_volunteers() {
     //returns all volunteers from the database
     global $db;
-    $query = 'SELECT volunteerID, username, first_name, last_name, email FROM users';
+    $query = 'SELECT volunteerID, username, first_name, last_name, email, is_admin FROM users';
     $statement = $db->prepare($query);
     $statement->execute();
     $results = $statement->fetchAll();
