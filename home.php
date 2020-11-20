@@ -11,17 +11,17 @@
 	   <fieldset>
 		   <legend>Registration</legend>
 		   <label>First Name:</label>
-		   <input type="text" name="first_name" value=""><br><br>
+		   <input type="text" name="first_name" required><br><br>
 		   <label>Last Name:</label>
-		   <input type="text" name="last_name" value=""><br><br>
+		   <input type="text" name="last_name" required><br><br>
 		   <label>E-Mail:</label>
-		   <input type="text" name="email" value=""><br><br>
+		   <input type="email" name="email" required><br><br>
 		   <label>Create Username:</label>
-		   <input type="text" name="username" value=""><br><br>
+		   <input type="text" name="username" required><br><br>
 		   <label>Create Password:</label>
-		   <input type="password" name="password"  value=""><br><br>	
+		   <input type="password" name="password" required><br><br>	
 		   <label>Verify Password:</label>
-		   <input type="password" name="password2"  value=""><br><br>	  
+		   <input type="password" name="password2" required><br><br>	  
 		   <input type="submit"  class="button" value="Register"><br><br>
 	   </fieldset>
    </form>
