@@ -36,7 +36,7 @@ $users = get_volunteers();
 					print('</td><td><i class="fa fa-check-circle"></i>');
 				}
 				print("</td>");
-				print("<td><a class=\"edit\" href=\"\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a></td>");
+				print("<td><a class=\"edit\" href=\"index.php?action=edit_user&volunteer_id=" . $user['volunteerID'] . "\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a></td>");
 				if ($user['volunteerID'] == $_SESSION['volunteerID']) {
 					print("<td><i class=\"fa fa-ban\"></i></td>");
 				} else {
