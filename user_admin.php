@@ -17,22 +17,23 @@ $users = get_volunteers();
 				<th>Email</th>
 				<th>Admin</th>
 				<th>Volunteer</th>
-				<th>Modify</th>
+				<th>Edit User</th>
+				<th>Delete User</th>
 			</tr>
 		</thead>
 		<?php
 			foreach($users as $user) {
 				print("<tr>");
-				print("<td>" . $user['username'] . "</tr>");
-				print("<td>" . $user['first_name'] . "</tr>");
-				print("<td>" . $user['last_name'] . "</tr>");
-				print("<td>" . $user['email'] . "</tr>");
+				print("<td>" . $user['username'] . "</td>");
+				print("<td>" . $user['first_name'] . "</td>");
+				print("<td>" . $user['last_name'] . "</td>");
+				print("<td>" . $user['email'] . "</td>");
 				print("<td>");
 				if ($user['is_admin']) {
 					print('<i class="fa fa-check-circle"></i>');
 					print("</td><td>");
 				} else {
-					print('</td><td>i class="fa fa-check-circle"></i>');
+					print('</td><td><i class="fa fa-check-circle"></i>');
 				}
 				print("</td>");
 				print("<td><a class=\"edit\" href=\"\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a></td>");
