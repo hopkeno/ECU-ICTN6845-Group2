@@ -74,7 +74,7 @@ switch($action) {
         if ($_SESSION['is_admin']) {
             $uid = filter_input(INPUT_GET, 'volunteer_id');
             delete_user($uid);
-            header("Location: index.php");
+            header("Location: index.php?action=user_admin");
         } else {
             include("task.php");
         }
@@ -88,7 +88,7 @@ switch($action) {
             $user['email'] = filter_input(INPUT_POST, 'email');
             $user['is_admin'] = filter_input(INPUT_POST, 'isadmin');          
             update_user($user);
-            header("Location: index.php");
+            header("Location: index.php?action=user_admin");
         } else {
             include("task.php");
         }
