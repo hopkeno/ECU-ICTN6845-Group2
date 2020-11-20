@@ -17,13 +17,13 @@ function add_user($username,$password,$email,$first,$last) {
 
 function delete_user($volID) {
     //removes a user from the db
+    unassign_volunteer($volID);
     global $db;
     $query = 'DELETE FROM users WHERE volunteerID = :vid;';
     $statement = $db->prepare($query);
     $statement->bindValue(':vid', $volID);    
     $statement->execute();
     $statement->closeCursor();
-    unassign_volunteer($volID);
 }
 
 function update_user($user) {
