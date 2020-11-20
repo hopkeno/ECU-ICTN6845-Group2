@@ -23,15 +23,15 @@ function delete_user($volID) {
     $statement->bindValue(':vid', $volID);    
     $statement->execute();
     $statement->closeCursor();
+    unassign_volunteer($volID);
 }
 
 function update_user($user) {
     //updates a user in the db
     global $db;
-    $query = 'UPDATE users SET username = :user, first_name = :cn, last_name = :sn, email = :email, is_admin = :adm  WHERE volunteerID = :volid;';
+    $query = 'UPDATE users SET first_name = :cn, last_name = :sn, email = :email, is_admin = :adm  WHERE volunteerID = :volid;';
     $statement = $db->prepare($query);
     $statement->bindValue(':volid', $user["volunteerID"]);
-    $statement->bindValue(':user', $user["username"]);
     $statement->bindValue(':cn', $user["first_name"]);    
     $statement->bindValue(':sn', $user["last_name"]);    
     $statement->bindValue(':email', $user["email"]);

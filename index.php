@@ -83,7 +83,6 @@ switch($action) {
         if ($_SESSION['is_admin']) {
             $user = array();
             $user['volunteerID'] = filter_input(INPUT_POST, 'volunteer_id');
-            $user['username'] = filter_input(INPUT_POST, 'username');
             $user['first_name'] = filter_input(INPUT_POST, 'firstname');
             $user['last_name'] = filter_input(INPUT_POST, 'lasstname');
             $user['email'] = filter_input(INPUT_POST, 'email');

@@ -17,7 +17,7 @@
 			<table data-toggle="table">
 			<tr>
 				<th>Username:</th>
-				<td><input type="text" name="username" value="<?php print($vol['username']); ?>" required></td>
+				<td><?php print($vol['username']); ?></td>
 			</tr>	
 			<tr>
 				<th>First Name:</th>
