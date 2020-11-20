@@ -70,6 +70,30 @@ switch($action) {
             include("task.php");
         }
         break;
+    case 'delete_user':
+        if ($_SESSION['is_admin']) {
+            $uid = filter_input(INPUT_GET, 'volunteer_id');
+            delete_user($uid);
+            header("Location: index.php");
+        } else {
+            include("task.php");
+        }
+        break;
+    case 'update_user':
+        if ($_SESSION['is_admin']) {
+            $user = array();
+            $user['volunteerID'] = filter_input(INPUT_POST, 'volunteer_id');
+            $user['username'] = filter_input(INPUT_POST, 'username');
+            $user['first_name'] = filter_input(INPUT_POST, 'firstname');
+            $user['last_name'] = filter_input(INPUT_POST, 'lasstname');
+            $user['email'] = filter_input(INPUT_POST, 'email');
+            $user['is_admin'] = filter_input(INPUT_POST, 'isadmin');          
+            update_user($user);
+            header("Location: index.php");
+        } else {
+            include("task.php");
+        }
+        break;     
     case 'update_task':
         if ($_SESSION['is_admin']) {
             $task = array();
