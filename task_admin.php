@@ -98,7 +98,7 @@ include("header.php");
 			<table>
 				<tr>
 					<th>Task Name:</th>
-					<td><input type="text" name="task_title"></td>
+					<td><input type="text" name="task_title" required></td>
 				</tr>	
 				<tr>
 					<th>Persons Required:</th>
@@ -112,11 +112,11 @@ include("header.php");
 				</tr>
 				<tr>
 					<th>Scheduled Date:</th>
-					<td><input type="datetime-local" name="task_scheduledTime" ></td>	
+					<td><input type="datetime-local" name="task_scheduledTime" required></td>	
 				</tr>
 				<tr>
 					<th>Location:</th>
-					<td><input type="text" name="task_location" ></td>
+					<td><input type="text" name="task_location" required></td>
 				</tr>
 			</table>
 			<input type="hidden" name="action" value="create_task">
