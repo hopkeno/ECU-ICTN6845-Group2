@@ -17,7 +17,7 @@
 				<table>
 				<tr>
 					<th>Task Name:</th>
-					<td><input type="text" name="task_title" value="<?php print($task['title']); ?>"></td>
+					<td><input type="text" name="task_title" value="<?php print($task['title']); ?>" required></td>
 				</tr>	
 				<tr>
 					<th>Number of People Required:</th>
@@ -35,11 +35,11 @@
 				</tr>
 				<tr>
 					<th>Scheduled Date:</th>
-					<td><input type="datetime-local" name="task_scheduledTime" value="<?php print(str_replace(" ","T",$task['scheduledTime']));?>"></td>	
+					<td><input type="datetime-local" name="task_scheduledTime" value="<?php print(str_replace(" ","T",$task['scheduledTime']));?>" required></td>	
 				</tr>
 				<tr>
 					<th>Location:</th>
-					<td><input type="text" name="task_location" value="<?php print($task['location']); ?>"></td>
+					<td><input type="text" name="task_location" value="<?php print($task['location']); ?>" required></td>
 				</tr>
 			</table>
 			<input type="hidden" name="task_id" value="<?php print($tid); ?>">
