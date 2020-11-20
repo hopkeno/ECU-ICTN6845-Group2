@@ -96,6 +96,14 @@ function unassign_task($taskId) {
     $statement->closeCursor();
 }
 
+function unassign_volunteer($vid) {
+    //unassigns all tasks for a particular volunteer
+    $tasks = get_tasks($vid);
+    foreach ($tasks as $task) {
+        unassign_task($task['taskID']);
+    }
+}
+
 function remove_task($taskId) {
     //deletes a task from the database
     global $db;
