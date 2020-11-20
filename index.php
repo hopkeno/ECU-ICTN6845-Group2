@@ -63,6 +63,13 @@ switch($action) {
             include("task.php");
         }
         break;
+    case 'user_admin':
+        if ($_SESSION['is_admin']) {
+            include("user_admin.php");
+        } else {
+            include("task.php");
+        }
+        break;
     case 'update_task':
         if ($_SESSION['is_admin']) {
             $task = array();
